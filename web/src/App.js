@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+// Componente: Bloco isolado de HTML, CSS, JS, o qual não interfere no restante da aplicação
+// Propriedade: Informações que um componente PAI passa para o componente FILHO
+// Estado: Informações mantidas pelo componente (Lembrar: imutabilidade)
+
+import Header from './Header';
 
 function App() {
+
+  let [counter, setCounter] = useState(0);
+
+  function IncrementCounter(){
+    setCounter(counter +1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Contador: {counter}</h1>
+      <button onClick={IncrementCounter}>Incrementar</button>
+    </>
   );
 }
 
